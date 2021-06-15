@@ -1,19 +1,20 @@
 VERSION 5.00
+Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "comdlg32.ocx"
 Begin VB.Form frmVBMailOrder 
    Caption         =   "VB Mail Order"
    ClientHeight    =   4470
-   ClientLeft      =   120
-   ClientTop       =   465
-   ClientWidth     =   8295
+   ClientLeft      =   225
+   ClientTop       =   870
+   ClientWidth     =   8235
    LinkTopic       =   "Form1"
    ScaleHeight     =   4470
-   ScaleWidth      =   8295
+   ScaleWidth      =   8235
    StartUpPosition =   3  'Windows Default
    Begin VB.Frame fraSummary 
       Caption         =   "Summary"
       Height          =   2175
       Left            =   120
-      TabIndex        =   24
+      TabIndex        =   21
       Top             =   2160
       Width           =   5415
       Begin VB.Label Label19 
@@ -22,7 +23,7 @@ Begin VB.Form frmVBMailOrder
          Caption         =   "Taxable"
          Height          =   195
          Left            =   4080
-         TabIndex        =   38
+         TabIndex        =   35
          Top             =   360
          Width           =   570
       End
@@ -32,7 +33,7 @@ Begin VB.Form frmVBMailOrder
          Caption         =   "Nontaxable"
          Height          =   195
          Left            =   2280
-         TabIndex        =   37
+         TabIndex        =   34
          Top             =   360
          Width           =   810
       End
@@ -40,7 +41,7 @@ Begin VB.Form frmVBMailOrder
          BorderStyle     =   1  'Fixed Single
          Height          =   255
          Left            =   3600
-         TabIndex        =   36
+         TabIndex        =   33
          Top             =   960
          Width           =   1545
       End
@@ -48,7 +49,7 @@ Begin VB.Form frmVBMailOrder
          BorderStyle     =   1  'Fixed Single
          Height          =   255
          Left            =   3600
-         TabIndex        =   35
+         TabIndex        =   32
          Top             =   1320
          Width           =   1545
       End
@@ -56,7 +57,7 @@ Begin VB.Form frmVBMailOrder
          BorderStyle     =   1  'Fixed Single
          Height          =   255
          Left            =   3600
-         TabIndex        =   34
+         TabIndex        =   31
          Top             =   1680
          Width           =   1545
       End
@@ -64,7 +65,7 @@ Begin VB.Form frmVBMailOrder
          BorderStyle     =   1  'Fixed Single
          Height          =   255
          Left            =   3600
-         TabIndex        =   33
+         TabIndex        =   30
          Top             =   600
          Width           =   1545
       End
@@ -74,7 +75,7 @@ Begin VB.Form frmVBMailOrder
          Caption         =   "Dollar amount due"
          Height          =   195
          Left            =   495
-         TabIndex        =   32
+         TabIndex        =   29
          Top             =   600
          Width           =   1290
       End
@@ -82,7 +83,7 @@ Begin VB.Form frmVBMailOrder
          BorderStyle     =   1  'Fixed Single
          Height          =   255
          Left            =   1920
-         TabIndex        =   31
+         TabIndex        =   28
          Top             =   600
          Width           =   1545
       End
@@ -90,7 +91,7 @@ Begin VB.Form frmVBMailOrder
          BorderStyle     =   1  'Fixed Single
          Height          =   255
          Left            =   1920
-         TabIndex        =   30
+         TabIndex        =   27
          Top             =   1680
          Width           =   1545
       End
@@ -98,7 +99,7 @@ Begin VB.Form frmVBMailOrder
          BorderStyle     =   1  'Fixed Single
          Height          =   255
          Left            =   1920
-         TabIndex        =   29
+         TabIndex        =   26
          Top             =   1320
          Width           =   1545
       End
@@ -106,7 +107,7 @@ Begin VB.Form frmVBMailOrder
          BorderStyle     =   1  'Fixed Single
          Height          =   255
          Left            =   1920
-         TabIndex        =   28
+         TabIndex        =   25
          Top             =   960
          Width           =   1545
       End
@@ -116,7 +117,7 @@ Begin VB.Form frmVBMailOrder
          Caption         =   "Total amount due"
          Height          =   195
          Left            =   555
-         TabIndex        =   27
+         TabIndex        =   24
          Top             =   1680
          Width           =   1245
       End
@@ -126,7 +127,7 @@ Begin VB.Form frmVBMailOrder
          Caption         =   "Shipping and handling"
          Height          =   195
          Left            =   240
-         TabIndex        =   26
+         TabIndex        =   23
          Top             =   1320
          Width           =   1575
       End
@@ -136,44 +137,25 @@ Begin VB.Form frmVBMailOrder
          Caption         =   "Sales tax"
          Height          =   195
          Left            =   1200
-         TabIndex        =   25
+         TabIndex        =   22
          Top             =   960
          Width           =   645
       End
    End
-   Begin VB.CommandButton cmdExit 
-      Caption         =   "E&xit"
-      Height          =   495
-      Left            =   6960
-      TabIndex        =   23
-      Top             =   2760
-      Width           =   1215
-   End
-   Begin VB.CommandButton cmdPrint 
-      Caption         =   "&Print"
-      Height          =   495
-      Left            =   6960
-      TabIndex        =   22
-      Top             =   2160
-      Width           =   1215
-   End
    Begin VB.CommandButton cmdUpdate 
-      Caption         =   "&Update Summary"
-      Height          =   495
-      Left            =   5640
-      TabIndex        =   21
-      Top             =   2760
-      Width           =   1215
-   End
-   Begin VB.CommandButton cmdNextItem 
-      Caption         =   "&Next Item"
-      Default         =   -1  'True
-      Enabled         =   0   'False
+      Caption         =   "Update Summary"
       Height          =   495
       Left            =   5640
       TabIndex        =   20
-      Top             =   2160
-      Width           =   1215
+      Top             =   2280
+      Width           =   1455
+   End
+   Begin MSComDlg.CommonDialog CommonDialog1 
+      Left            =   5640
+      Top             =   2880
+      _ExtentX        =   847
+      _ExtentY        =   847
+      _Version        =   393216
    End
    Begin VB.Frame fraItem 
       Caption         =   "Item"
@@ -297,7 +279,7 @@ Begin VB.Form frmVBMailOrder
          Top             =   1080
          Width           =   1575
       End
-      Begin VB.TextBox Text2 
+      Begin VB.TextBox txtAddress 
          Height          =   285
          Left            =   960
          TabIndex        =   2
@@ -362,32 +344,65 @@ Begin VB.Form frmVBMailOrder
          Width           =   420
       End
    End
+   Begin VB.Menu mnuFile 
+      Caption         =   "File"
+      Begin VB.Menu mnuFilePrintForm 
+         Caption         =   "&Print"
+         Shortcut        =   ^P
+      End
+      Begin VB.Menu mnuFileSummary 
+         Caption         =   "&Summary"
+      End
+      Begin VB.Menu mnuFileExit 
+         Caption         =   "E&xit"
+      End
+   End
+   Begin VB.Menu mnuEdit 
+      Caption         =   "Edit"
+      Begin VB.Menu mnuEditNextItem 
+         Caption         =   "Next &Item"
+         Enabled         =   0   'False
+      End
+      Begin VB.Menu mnuEditNextOrder 
+         Caption         =   "Next &Order"
+      End
+      Begin VB.Menu mnuEditSeparator 
+         Caption         =   "-"
+      End
+      Begin VB.Menu mnuEditFont 
+         Caption         =   "&Font"
+      End
+      Begin VB.Menu mnuColor 
+         Caption         =   "&Color"
+      End
+   End
+   Begin VB.Menu mnuHelp 
+      Caption         =   "Help"
+      Begin VB.Menu mnuHelpAbout 
+         Caption         =   "About"
+      End
+   End
 End
 Attribute VB_Name = "frmVBMailOrder"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-' VB Mail Order Chapter 4
+' VB Mail Order Chapter 6
 ' by Ethan Hampton
-' 2/10/2021
+' 5/3/2021
 ' This program calculates mail orders for items from a catalog
 
-' Declarations
-Dim mcurDollarAmount As Currency
-Dim mintTotalWeight As Integer
-Dim mintTotalItems As Integer
-Dim mcurSalesTax As Currency
-Dim mcurShipping As Currency
-Dim mcurHandling As Currency
-Dim mcurTotal As Currency
-
-Private Sub cmdExit_Click()
-    ' Exit the form
-    End
+Private Sub msg(ByVal str As String)
+    ' This function just makes it easier to generate message boxes
+    MsgBox str, vbOKOnly, "Message"
 End Sub
 
-Private Sub cmdNextItem_Click()
+Private Sub cmdUpdate_Click()
+    Call updateSummary
+End Sub
+
+Private Sub mnuEditNextItem_Click()
     ' Declarations
     Dim intQuantity As Integer
     Dim intWeight As Integer
@@ -434,45 +449,44 @@ Private Sub cmdNextItem_Click()
     End If
 End Sub
 
-Private Sub msg(ByVal str As String)
-    ' This function just makes it easier to generate message boxes
-    MsgBox str, vbOKOnly, "Message"
+Private Sub mnuEditNextOrder_Click()
+    ' Clear the entire form and start a new order
+    txtName.Text = ""
+    txtAddress.Text = ""
+    txtCity.Text = ""
+    txtState.Text = ""
+    txtZIP.Text = ""
+    
+    txtItemDesc.Text = ""
+    txtItemQuantity.Text = ""
+    txtItemWeight.Text = ""
+    txtItemPrice = ""
+    
+    lblDollarAmount.Caption = ""
+    lblSalesTax.Caption = ""
+    lblShipping.Caption = ""
+    lblTotal.Caption = ""
+    
+    lblDollarAmountTax.Caption = ""
+    lblSalesTaxTax.Caption = ""
+    lblShippingTax.Caption = ""
+    lblTotalTax.Caption = ""
 End Sub
 
-Private Sub cmdPrint_Click()
-    ' Print the form (disabled)
+Private Sub mnuFileExit_Click()
+    ' Exit the form
+    End
+End Sub
+
+Private Sub mnuFilePrintForm_Click()
+    ' Print the form
     ' PrintForm
+    ' jeff bezos's printer is broken so we remark :C
 End Sub
 
-Private Sub cmdUpdate_Click()
-    ' Declarations
-    Dim curShippingCharge As Currency
-    Dim curHandlingCharge As Currency
-    Const curTaxAmount = 0.25
-    
-    ' Calculate shipping charge
-    curShippingCharge = FormatCurrency(curTaxAmount * mintTotalWeight)
-    
-    ' Calculate handling charge
-    If mintTotalWeight < 10 Then
-        curHandlingCharge = FormatCurrency(1)
-    ElseIf mintTotalWeight < 100 Then
-        curHandlingCharge = FormatCurrency(3)
-    Else
-        curHandlingCharge = FormatCurrency(5)
-    End If
-    
-    ' Display the current summary status
-    lblDollarAmount.Caption = FormatCurrency(mcurDollarAmount)
-    lblSalesTax.Caption = FormatCurrency(0) ' Since this is the nontaxable section, this should be zero
-    lblShipping.Caption = FormatCurrency(curShippingCharge + curHandlingCharge)
-    lblTotal.Caption = FormatCurrency(mcurDollarAmount + curHandlingCharge + curShippingCharge)
-    
-    ' Display again in the taxable section
-    lblDollarAmountTax.Caption = FormatCurrency(mcurDollarAmount)
-    lblSalesTaxTax.Caption = FormatCurrency(mcurDollarAmount * 0.08) ' This time, display it
-    lblShippingTax.Caption = FormatCurrency(curShippingCharge + curHandlingCharge)
-    lblTotalTax.Caption = FormatCurrency(mcurDollarAmount + (mcurDollarAmount * 0.08) + curHandlingCharge + curShippingCharge)
+Private Sub mnuHelpAbout_Click()
+    ' MsgBox "VB Mail Order" & vbCrLf & vbCrLf & "Programmed by Ethan Hampton", vbOKOnly, "About VB Mail Order"
+    frmAbout.Show vbModal
 End Sub
 
 Private Sub txtState_Change()
@@ -485,9 +499,9 @@ End Sub
 Private Sub checkItemFilled()
     ' This subroutine checks if the current item's parameters are filled out with enough info to determine if the Next Item button should be enabled
     If checkFilled(txtItemQuantity) And checkFilled(txtItemWeight) And checkFilled(txtItemPrice) Then
-        cmdNextItem.Enabled = True
+        mnuEditNextItem.Enabled = True
     Else
-        cmdNextItem.Enabled = False
+        mnuEditNextItem.Enabled = False
     End If
 End Sub
 
@@ -516,3 +530,41 @@ Private Sub txtItemPrice_Change()
     ' This checks if the item is completed on text change
     Call checkItemFilled
 End Sub
+
+Private Function updateSummary()
+    ' Declarations
+    Dim curShippingCharge As Currency
+    Dim curHandlingCharge As Currency
+    Const curTaxAmount = 0.25
+    
+    ' Calculate shipping charge
+    curShippingCharge = FormatCurrency(curTaxAmount * mintTotalWeight)
+    
+    ' Calculate handling charge
+    If mintTotalWeight < 10 Then
+        curHandlingCharge = FormatCurrency(1)
+    ElseIf mintTotalWeight < 100 Then
+        curHandlingCharge = FormatCurrency(3)
+    Else
+        curHandlingCharge = FormatCurrency(5)
+    End If
+    
+    ' Display the current summary status
+    lblDollarAmount.Caption = FormatCurrency(mcurDollarAmount)
+    lblSalesTax.Caption = FormatCurrency(0) ' Since this is the nontaxable section, this should be zero
+    lblShipping.Caption = FormatCurrency(curShippingCharge + curHandlingCharge)
+    lblTotal.Caption = FormatCurrency(mcurDollarAmount + curHandlingCharge + curShippingCharge)
+    
+    ' Display again in the taxable section
+    lblDollarAmountTax.Caption = FormatCurrency(mcurDollarAmount)
+    lblSalesTaxTax.Caption = FormatCurrency(mcurDollarAmount * 0.08) ' This time, display it
+    lblShippingTax.Caption = FormatCurrency(curShippingCharge + curHandlingCharge)
+    lblTotalTax.Caption = FormatCurrency(mcurDollarAmount + (mcurDollarAmount * 0.08) + curHandlingCharge + curShippingCharge)
+End Function
+
+Public Function updateSmall()
+    lblDollarAmount.Caption = FormatCurrency(mcurDollarAmount)
+    lblDollarAmountTax.Caption = FormatCurrency(mcurDollarAmount)
+End Function
+
+

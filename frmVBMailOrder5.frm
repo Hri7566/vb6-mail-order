@@ -1,4 +1,5 @@
 VERSION 5.00
+Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "comdlg32.ocx"
 Begin VB.Form frmVBMailOrder 
    Caption         =   "VB Mail Order"
    ClientHeight    =   4470
@@ -9,6 +10,13 @@ Begin VB.Form frmVBMailOrder
    ScaleHeight     =   4470
    ScaleWidth      =   8295
    StartUpPosition =   3  'Windows Default
+   Begin MSComDlg.CommonDialog dlgFont 
+      Left            =   3960
+      Top             =   2040
+      _ExtentX        =   847
+      _ExtentY        =   847
+      _Version        =   393216
+   End
    Begin VB.Frame fraSummary 
       Caption         =   "Summary"
       Height          =   2175
@@ -146,7 +154,7 @@ Begin VB.Form frmVBMailOrder
       Height          =   495
       Left            =   5640
       TabIndex        =   20
-      Top             =   2760
+      Top             =   2280
       Width           =   1215
    End
    Begin VB.Frame fraItem 
@@ -339,32 +347,32 @@ Begin VB.Form frmVBMailOrder
    Begin VB.Menu mnuFile 
       Caption         =   "File"
       Begin VB.Menu mnuFilePrintForm 
-         Caption         =   "Print"
+         Caption         =   "&Print"
          Shortcut        =   ^P
       End
       Begin VB.Menu mnuFileSummary 
-         Caption         =   "Summary"
+         Caption         =   "&Summary"
       End
       Begin VB.Menu mnuFileExit 
-         Caption         =   "Exit"
+         Caption         =   "E&xit"
       End
    End
    Begin VB.Menu mnuEdit 
       Caption         =   "Edit"
       Begin VB.Menu mnuEditNextItem 
-         Caption         =   "Next Item"
+         Caption         =   "Next &Item"
       End
       Begin VB.Menu mnuEditNextOrder 
-         Caption         =   "Next Order"
+         Caption         =   "Next &Order"
       End
       Begin VB.Menu mnuEditSeparator 
          Caption         =   "-"
       End
       Begin VB.Menu mnuEditFont 
-         Caption         =   "Font"
+         Caption         =   "&Font"
       End
       Begin VB.Menu mnuColor 
-         Caption         =   "Color"
+         Caption         =   "&Color"
       End
    End
    Begin VB.Menu mnuHelp 
@@ -400,6 +408,14 @@ End Sub
 
 Private Sub cmdUpdate_Click()
     Call updateSummary
+End Sub
+
+Private Sub mnuColor_Click()
+    dlgFont.ShowColor
+End Sub
+
+Private Sub mnuEditFont_Click()
+    dlgFont.ShowFont
 End Sub
 
 Private Sub mnuEditNextItem_Click()
@@ -453,9 +469,10 @@ Private Function updateSummary()
     ' Declarations
     Dim curShippingCharge As Currency
     Dim curHandlingCharge As Currency
+    Const curTaxAmount = 0.25
     
     ' Calculate shipping charge
-    curShippingCharge = FormatCurrency(0.25 * mintTotalWeight)
+    curShippingCharge = FormatCurrency(curTaxAmount * mintTotalWeight)
     
     ' Calculate handling charge
     If mintTotalWeight < 10 Then
@@ -512,7 +529,7 @@ Private Sub checkItemFilled()
 End Sub
 
 Private Function checkFilled(ByRef txt As TextBox) As Boolean
-    ' This function checks if a text box is filled
+    ' This function checks if a text box "txt" is filled and returns a boolean
     Dim Ret As Boolean
     If Len(txt.Text) = 0 Then
         Ret = False

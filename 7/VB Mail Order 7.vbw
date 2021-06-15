@@ -1,0 +1,7 @@
+frmVBMailOrder = 130, 130, 1045, 572, , 258, 36, 1636, 623, C
+frmSplash = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+frmAbout = 0, 0, 0, 0, C, 26, 26, 941, 468, C
+Start = 0, 0, 0, 0, C
+gVBMailOrder = 0, 0, 0, 0, C
+frmSummary = 0, 0, 0, 0, C, 52, 52, 967, 494, C
+frmInvoice = 0, 0, 0, 0, C, 0, 0, 0, 0, C
